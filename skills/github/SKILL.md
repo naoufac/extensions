@@ -37,6 +37,22 @@ git remote -v && git branch # to find the current org, repo and branch
 git checkout -b create-widget && git add . && git commit -m "Create widget" && git push -u origin create-widget
 ```
 
+## Requesting a Review
+
+Use one trigger path for each review request:
+
+```bash
+gh pr edit <number> --repo <owner/repo> --add-reviewer <reviewer-login>
+```
+
+Do not also post an `@reviewer please review` comment. A reviewer-request
+webhook and a mention responder can start independent agents, producing a
+formal review and a second review-shaped comment for the same request.
+Check pending requests and submitted reviews before retrying; lack of an
+immediate response is not a reason to trigger another path. If reviewer
+assignment fails, inspect the error and the repository's documented trigger
+before using a mention as an alternative, never as an additional trigger.
+
 ## Handling Review Comments
 
 - Critically evaluate each review comment before acting on it. Not all feedback is worth implementing:

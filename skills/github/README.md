@@ -40,3 +40,10 @@ Here are some instructions for pushing, but ONLY do this if the user asks you to
 git remote -v && git branch # to find the current org, repo and branch
 git checkout -b create-widget && git add . && git commit -m "Create widget" && git push -u origin create-widget
 ```
+
+## Requesting reviews
+
+Use `gh pr edit <number> --repo <owner/repo> --add-reviewer <login>` once.
+Do not additionally mention the reviewer in a comment: reviewer-request and
+mention automations may independently perform the same review. Inspect pending
+requests and submitted reviews before retrying. See `SKILL.md` for details.
